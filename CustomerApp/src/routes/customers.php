@@ -4,6 +4,19 @@ use \Psr\Http\Message\ResponseInterface as Response;
 
 $app = new \Slim\App;
 
+$app->options('/{routes:.+}', function($req, $res, $args){
+  return $res;
+});
+
+$app->add(function($req, $res, $next){
+  $res = $next($req, $res);
+
+  return $res ->withHeader('Access-Control-Allow-Origin', '*')
+              ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+              ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+});
+
+
 //Get All Customers
 $app->get('/api/customers', function(Request $req, Response $res){
  //echo 'Customers';
