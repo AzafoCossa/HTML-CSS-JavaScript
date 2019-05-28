@@ -2,7 +2,8 @@
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
-require '../../vendor/autoload.php';
+require '../vendor/autoload.php';
+require '../src/config/connection.php';
 
 $app = new \Slim\App;
 $app->get('/hello/{name}', function (Request $request, Response $response, array $args) {
@@ -11,4 +12,8 @@ $app->get('/hello/{name}', function (Request $request, Response $response, array
 
     return $response;
 });
+
+//Customer Routes
+require '../src/routes/customers.php';
+
 $app->run();
