@@ -53,7 +53,7 @@ $app->get('/api/customer/{id}', function(Request $req, Response $res){
 
     $stmt = $connection->query($sql);
 
-    $customer = $stmt->fetchAll(PDO::FETCH_OBJ);
+    $customer = $stmt->fetch(PDO::FETCH_OBJ);
 
     $connection = null;
 
