@@ -1,8 +1,10 @@
 <template>
   <div id="app">
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <a class="navbar-brand" href="/">Fixed navbar</a>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <router-link to="/">
+        <a class="navbar-brand">App Name</a>
+      </router-link>
       <button
         class="navbar-toggler"
         type="button"
@@ -16,14 +18,15 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/">
-              Customers
-              <span class="sr-only">(current)</span>
-            </a>
+          <li class="nav-item">
+            <router-link to="/">
+              <a class="nav-link">Customers</a>
+            </router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/about">About</a>
+            <router-link to="/about">
+              <a class="nav-link">About</a>
+            </router-link>
           </li>
         </ul>
       </div>

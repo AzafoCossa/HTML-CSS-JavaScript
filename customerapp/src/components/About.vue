@@ -1,5 +1,12 @@
 <template>
-  <div class="about">About</div>
+  <div class="about container">
+    <div class="card mt-2">
+      <div class="card-header bg-light">About</div>
+      <div class="card-body">
+        <p>body</p>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
