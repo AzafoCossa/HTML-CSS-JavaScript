@@ -6,6 +6,8 @@
     <div class="card mt-2">
       <div class="card-header bg-light">
         <i class="fas fa-info-circle">&nbsp;</i>Customer Details
+        <button class="btn btn-success btn-sm">Edit</button>
+        <button class="btn btn-danger btn-sm">Delete</button>
       </div>
 
       <div class="card-body">
