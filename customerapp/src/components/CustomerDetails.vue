@@ -6,8 +6,8 @@
     <div class="card mt-2">
       <div class="card-header bg-light">
         <i class="fas fa-info-circle">&nbsp;</i>Customer Details
-        <button class="btn btn-success btn-sm">Edit</button>
-        <button class="btn btn-danger btn-sm">Delete</button>
+        <button class="btn btn-success btn-sm" style="margin-left:76%;">Edit</button>
+        <button class="btn btn-danger btn-sm" v-on:click="deleteCustomer(customer.ID)">Delete</button>
       </div>
 
       <div class="card-body">
@@ -96,6 +96,19 @@ export default {
         )
         .then(function(response) {
           this.customer = JSON.parse(JSON.stringify(response.body));
+        });
+    },
+    deleteCustomer(id) {
+      this.$http
+        .delete(
+          "http://localhost/HTML-CSS-JavaScript/CustomerApp/public/index.php/api/customer/delete/" +
+            id
+        )
+        .then(function(response) {
+          this.$router.push({
+            path: "/",
+            query: { alert: "Customer Deleted!" }
+          });
         });
     }
   },
