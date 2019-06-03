@@ -118,7 +118,8 @@ export default {
           )
           .then(function(response) {
             this.$router.push({
-              path: "/"
+              path: "/",
+              query: { alert: "Customer Added" }
             });
           });
         e.preventDefault();

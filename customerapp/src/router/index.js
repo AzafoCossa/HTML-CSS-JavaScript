@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Resource from 'vue-resource'
 import Customers from '@/components/Customers'
+import CustomerDetails from '@/components/CustomerDetails'
 import About from '@/components/About'
 import Add from '@/components/Add'
 
@@ -21,5 +22,9 @@ export default new Router({
     path: '/Add',
     name: 'add',
     component: Add
+  }, {
+    path: '/Customer/:id',
+    name: 'customerdetails',
+    component: CustomerDetails
   }]
 })
