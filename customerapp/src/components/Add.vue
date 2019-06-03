@@ -1,5 +1,6 @@
 <template>
-  <div class="about container">
+  <div class="add container">
+    <Alert v-if="alert" v-bind:message="alert" class="mt-2"/>
     <div class="card mt-2">
       <div class="card-header bg-light">Add Customer</div>
       <div class="card-body">
@@ -85,11 +86,13 @@
 </template>
 
 <script>
+import Alert from "./Alert";
 export default {
   name: "add",
   data() {
     return {
-      customer: {}
+      customer: {},
+      alert: ""
     };
   },
   methods: {
@@ -99,7 +102,7 @@ export default {
         !this.customer.surname ||
         !this.customer.email
       ) {
-        console.log("Please, fill in all required fields!");
+        this.alert = "Please, fill in all required fields!";
       } else {
         let newCustomer = {
           name: this.customer.name,
@@ -126,6 +129,9 @@ export default {
       }
       e.preventDefault();
     }
+  },
+  components: {
+    Alert
   }
 };
 </script>

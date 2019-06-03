@@ -6,7 +6,9 @@
     <div class="card mt-2">
       <div class="card-header bg-light">
         <i class="fas fa-info-circle">&nbsp;</i>Customer Details
-        <button class="btn btn-success btn-sm" style="margin-left:76%;">Edit</button>
+        <router-link v-bind:to="'/customer/edit/'+customer.ID">
+          <button class="btn btn-success btn-sm" style="margin-left:76%;">Edit</button>
+        </router-link>
         <button class="btn btn-danger btn-sm" v-on:click="deleteCustomer(customer.ID)">Delete</button>
       </div>
 

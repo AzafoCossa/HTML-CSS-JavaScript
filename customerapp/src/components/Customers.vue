@@ -6,6 +6,7 @@
         <i class="fas fa-edit"></i> Manage Customers
       </div>
       <div class="card-body">
+        <!-- <input type="text" class="form-control" placeholder="Type in to filter"> -->
         <table class="table table-striped">
           <thead>
             <tr>

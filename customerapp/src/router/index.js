@@ -5,6 +5,7 @@ import Customers from '@/components/Customers'
 import CustomerDetails from '@/components/CustomerDetails'
 import About from '@/components/About'
 import Add from '@/components/Add'
+import Edit from '@/components/Edit'
 
 Vue.use(Router)
 Vue.use(Resource)
@@ -26,5 +27,9 @@ export default new Router({
     path: '/Customer/:id',
     name: 'customerdetails',
     component: CustomerDetails
+  }, {
+    path: '/Customer/edit/:id',
+    name: 'edit',
+    component: Edit
   }]
 })

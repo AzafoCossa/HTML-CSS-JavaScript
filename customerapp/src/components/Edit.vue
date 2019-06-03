@@ -1,9 +1,10 @@
 <template>
-  <div class="about container">
+  <div class="edit container">
+    <Alert v-if="alert" v-bind:message="alert" class="mt-2"/>
     <div class="card mt-2">
       <div class="card-header bg-light">Edit Customer</div>
       <div class="card-body">
-        <form v-on:submit="addCustomer">
+        <form v-on:submit="updateCustomer">
           <div class="well">
             <h4>Customer Info</h4>
             <div class="form-group">
@@ -85,23 +86,35 @@
 </template>
 
 <script>
+import Alert from "./Alert";
 export default {
-  name: "add",
+  name: "edit",
   data() {
     return {
-      customer: {}
+      customer: {},
+      alert: ""
     };
   },
   methods: {
-    addCustomer(e) {
+    fetchCustomer(id) {
+      this.$http
+        .get(
+          "http://localhost/HTML-CSS-JavaScript/CustomerApp/public/index.php/api/customer/" +
+            id
+        )
+        .then(function(response) {
+          this.customer = JSON.parse(JSON.stringify(response.body));
+        });
+    },
+    updateCustomer(e) {
       if (
         !this.customer.name ||
         !this.customer.surname ||
         !this.customer.email
       ) {
-        console.log("Please, fill in all required fields!");
+        this.alert = "Please, fill in all required fields!";
       } else {
-        let newCustomer = {
+        let updateCustomer = {
           name: this.customer.name,
           surname: this.customer.surname,
           address: this.customer.address,
@@ -112,20 +125,27 @@ export default {
         };
 
         this.$http
-          .post(
-            "http://localhost/HTML-CSS-JavaScript/CustomerApp/public/index.php/api/customer/add",
-            newCustomer
+          .put(
+            "http://localhost/HTML-CSS-JavaScript/CustomerApp/public/index.php/api/customer/update/" +
+              this.$route.params.id,
+            updateCustomer
           )
           .then(function(response) {
             this.$router.push({
               path: "/",
-              query: { alert: "Customer Added" }
+              query: { alert: "Customer Updated" }
             });
           });
         e.preventDefault();
       }
       e.preventDefault();
     }
+  },
+  created: function() {
+    this.fetchCustomer(this.$route.params.id);
+  },
+  components: {
+    Alert
   }
 };
 </script>
