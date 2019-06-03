@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Resource from 'vue-resource'
 import Customers from '@/components/Customers'
 import About from '@/components/About'
+import Add from '@/components/Add'
 
 Vue.use(Router)
 Vue.use(Resource)
@@ -16,5 +17,9 @@ export default new Router({
     path: '/About',
     name: 'about',
     component: About
+  }, {
+    path: '/Add',
+    name: 'add',
+    component: Add
   }]
 })

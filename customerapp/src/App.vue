@@ -29,6 +29,13 @@
             </router-link>
           </li>
         </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item mr-auto">
+            <router-link to="/add">
+              <a class="nav-link">Add Customer</a>
+            </router-link>
+          </li>
+        </ul>
       </div>
     </nav>
     <router-view/>
