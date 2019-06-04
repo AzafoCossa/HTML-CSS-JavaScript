@@ -99,7 +99,28 @@ h6 {
     transition: all 0.5s;
 }
 
+.btn-primary:hover {
+    background-color: #ff7b39;
+}
 
+.btn-secondary {
+    padding: 0.7rem;
+    height: 2rem;
+    display: block;
+    border: 1px solid #f4f4f4;
+    border-radius: 2px;
+    font-weight: 500;
+    background: none;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.btn-secondary:hover {
+    border-color: #ff7b39;
+    color: #ff7b39;
+}
 
 /* Media Queries */
 @media(min-width:1200px) {
