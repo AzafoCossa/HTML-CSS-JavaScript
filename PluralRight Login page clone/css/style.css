@@ -157,6 +157,19 @@ h6 {
     color: #ff7b39;
 }
 
+#main-footer {
+    color: #ccc;
+    text-align: center;
+    font-size: 0.8rem;
+    max-width: 80%;
+    padding-top: 3rem;
+}
+
+#main-footer a {
+    color: #f96816;
+    text-decoration: underline;
+}
+
 /* Media Queries */
 @media(min-width:1200px) {
     #left {
